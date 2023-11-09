@@ -1,0 +1,79 @@
+{% load static %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASAS</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'img/logo-ok.png' %}" alt="Logo principal">
+        </div>
+        <div class="opcoes">
+            <button>Português</button>
+            <button>Casa/Fotos</button>
+            <button>Login</button>
+        </div>
+    </header>
+    <nav>
+        <div class="slider">
+
+          <div classs="slides">
+            <!--Radio Buttons-->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+               <!--Fim Radio Buttons-->
+               
+                  <!--Slide images-->
+            <div class="first-slide">
+              <img src="{% static 'img/coco.jpg' %}" alt="imagem 1">    
+            </div>    
+            <div class="second-slide">
+              <img src="{% static 'img/logo-ok.png' %}" alt="imagem 2">    
+            </div>  
+            <div class="third-slide">
+              <img src="{% static 'img/coco.jpg' %}" alt="imagem 3">    
+            </div>  
+            <div class="fourth slide">
+              <img src="{% static 'img/coco.jpg' %}" alt="imagem 4">    
+            </div>  
+              <!--end of the slide images-->
+
+              <!--Navigation-auto-->
+             <div class="navigation-auto">
+              <div class="auto-btn1"></div>
+              <div class="auto-btn2"></div>
+              <div class="auto-btn3"></div>
+              <div class="auto-btn4"></div>
+             </div> 
+
+
+
+
+
+
+
+          </div>
+
+          <div class="manual-navigation">
+              <label for="radio1" class="manual-btn"></label>
+              <label for="radio2" class="manual-btn"></label>
+              <label for="radio3" class="manual-btn"></label>
+              <label for="radi04" class="manual-btn"></label>
+          </div>
+
+
+        </div>
+    </nav>
+ 
+    
+    <script> src="script.js"</script>
+</body>
+</html>
