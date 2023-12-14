@@ -1,0 +1,762 @@
+/* Importando fontes do Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
+
+/* Definindo variáveis de raiz */
+:root {
+  --transition: all 0.3s ease; /* Tempo de transição padrão para animações */
+  --yellow: #ec9646; /* Cor amarela personalizada */
+  --dark: #292826; /* Cor escura personalizada */
+}
+
+/* Resetando estilos padrão e configurando a fonte principal */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+}
+
+/* Configuração para rolar suavemente na página */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Configurações gerais do corpo da página */
+body{
+  overflow: hidden; /* Impede a rolagem vertical na página */
+  line-height: 1.6;
+  transition: var(--transition); /* Aplicando a transição padrão a todos os elementos do corpo da página */
+}
+
+/* Configurações do preloader (indicador de carregamento) */
+#preloader{
+  /* Configurando uma imagem de fundo preta com um indicador de carregamento no centro */
+  background: black url(gifloader.gif) no-repeat center center;
+  background-size: 15%;
+  height: 100vh; /* Altura total da tela */
+  width:100%;
+  position: fixed;
+  z-index: 100;
+}
+
+
+/* Configurações do botão de rolar para o topo */
+#btnScrollToTop {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background:#262626;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  color: #ec9646;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#btnScrollToTop:active{
+  background: rgb(12, 214, 12);
+}
+
+
+/* Scroll Button Functionality Ends */
+/* Estilos para botões gerais */
+.btn {
+  font-size: 16px; /* Tamanho da fonte */
+  /* text-transform: uppercase; */ /* Comentado para desativar a transformação para maiúsculas */
+  font-weight: 600; /* Peso da fonte */
+  border: none; /* Sem borda */
+  padding: 10px; /* Preenchimento interno de 10 pixels */
+  width: 140px; /* Largura fixa de 140 pixels */
+  display: block; /* Exibição como bloco para ocupar a largura total disponível */
+  margin: 15px auto; /* Margens superior e inferior de 15 pixels e margens laterais automáticas para centralização */
+  cursor: pointer; /* Cursor tipo ponteiro ao passar por cima */
+  transition: var(--transition); /* Transição suave utilizando a variável definida anteriormente */
+}
+
+
+/* Estilos para links dentro dos botões */
+.btn a {
+  text-decoration: none; /* Remover decoração de texto (sublinhado) nos links */
+  color: rgb(0, 0, 0); /* Cor do texto dentro do botão */
+}
+
+/* Estilos para links visitados dentro dos botões */
+.btn a:visited {
+  text-decoration: none; /* Remover decoração de texto para links visitados */
+}
+
+/* Estilos para botões no bloco com id "rooms" quando o mouse está sobre ele */
+#rooms .btn:hover {
+  background-color: #ec9646; /* Cor de fundo ao passar o mouse */
+  color: white; /* Cor do texto ao passar o mouse */
+}
+
+/* Estilos para botões dentro do contêiner de botões */
+.btn-container button {
+  background-color: #ec9646; /* Cor de fundo do botão no contêiner */
+}
+
+/* Estilos para elementos flexíveis com coluna principal no centro */
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para cabeçalhos de h1 a h6 */
+h1, h2, h3, h4, h5, h6 {
+  padding: 8px 0; /* Preenchimento superior e inferior de 8 pixels */
+}
+
+/* Estilos para imagens */
+img {
+  width: 100%; /* Largura da imagem de 100% */
+  height: 70vh; /* Altura da imagem limitada a 70% da altura da tela */
+  object-fit: fill; /* Preenchimento total da área de visualização com a imagem */
+  display: block; /* Exibição como bloco para centralização automática */
+}
+
+/* Estilos para telas menores que 500px de largura */
+@media (max-width: 500px) {
+  body {
+    font-size: 14px; /* Redução do tamanho da fonte para telas menores */
+  }
+}
+
+/* Estilos para o cabeçalho da página (header) */
+.header {
+  /* Gradiente de fundo com imagem e ajustes de cor e posição */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
+    url("images/IMG_3510.jpg") center/cover no-repeat;
+  min-height: 100vh; /* Altura mínima da seção do cabeçalho */
+  color: #fff; /* Cor do texto */
+  padding: 25px; /* Preenchimento interno de 25 pixels */
+  display: flex; /* Exibição como flexível para o uso de flexbox */
+  flex-direction: column; /* Coluna principal */
+  align-content: stretch; /* Estender os itens verticalmente na coluna */
+  background-position: 50% 66%; /* Posição de fundo centrada na vertical e 66% na horizontal */
+}
+
+/* Estilos para a parte superior do cabeçalho */
+.head-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos para elementos span na parte superior do cabeçalho */
+.head-top span {
+  cursor: pointer; /* Cursor tipo ponteiro ao passar por cima */
+  letter-spacing: 2px; /* Espaçamento entre letras */
+  transition: var(--transition); /* Transição suave utilizando a variável definida anteriormente */
+}
+
+/* Estilos para a imagem do site no cabeçalho */
+.site-name img {
+  width: 200px; /* Largura da imagem conforme desejado */
+  height: auto; /* Ajuste automático da altura de acordo com a largura */
+  margin-top: -18%; /* Margem superior negativa para ajuste visual */
+}
+
+/* Estilos para o hover de links na parte superior do cabeçalho */
+.head-top span a:hover {
+  color: var(--yellow); /* Cor do texto ao passar o mouse */
+}
+
+/* Estilos para a parte inferior do cabeçalho */
+.head-bottom {
+  flex: 1;
+  text-align: center;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+/* Estilos para o título (h2) na parte inferior do cabeçalho */
+.head-bottom h2 {
+  padding: 22px 0; /* Preenchimento superior e inferior de 22 pixels */
+  font-size: 45px; /* Tamanho da fonte */
+  border-bottom: 1px solid #fff; /* Borda inferior de 1 pixel sólido branco */
+}
+
+/* Estilos para parágrafos na parte inferior do cabeçalho */
+.head-bottom p {
+  opacity: 0.7; /* Opacidade do texto */
+  font-size: 20px; /* Tamanho da fonte */
+  margin: 45px auto; /* Margem superior e inferior automática */
+  width: 60vw; /* Largura de 60% da largura da tela */
+}
+
+/* Estilos para o botão na parte inferior do cabeçalho */
+.head-btn {
+  text-decoration: none; /* Sem decoração de texto */
+  border: 3px solid rgb(255, 255, 255); /* Borda sólida branca de 3 pixels */
+  color: #fff; /* Cor do texto */
+  background-color: rgb(0,0,0.5); /* Cor de fundo do botão */
+  background-color: rgba(0,0,0, 0.4); /* Cor de fundo com opacidade */
+  padding: 15px 30px; /* Preenchimento interno de 15 pixels superior e inferior, 30 pixels à esquerda e à direita */
+  font-size: 28px; /* Tamanho da fonte */
+  font-family: sans-serif; /* Família da fonte */
+  letter-spacing: 5px; /* Espaçamento entre letras */
+  transition: all 0.5s; /* Transição suave para todas as propriedades ao longo de 0.5 segundos */
+  position: relative; /* Posição relativa para posicionamento absoluto do ícone de seta */
+  margin-top: 10px; /* Margem superior de 10 pixels */
+  cursor: pointer; /* Cursor tipo ponteiro ao passar por cima */
+}
+
+/* Estilos para o hover do botão na parte inferior do cabeçalho */
+.head-btn:hover{
+  background-color: rgb(0,0,0.5); /* Cor de fundo ao passar o mouse */
+  background-color: rgba(0,0,0, 0.1); /* Cor de fundo com opacidade ao passar o mouse */
+}
+
+
+
+/* Media query para telas com largura máxima de 500 pixels */
+@media (max-width: 500px) {
+  /* Ajustes para o botão no cabeçalho quando a tela é pequena */
+  .head-btn {
+    font-size: 17px;
+  }
+  /* Ajustes para o título (h2) na parte inferior do cabeçalho quando a tela é pequena */
+  .head-bottom h2 {
+    font-size: 28px;
+  }
+  /* Ajustes para os parágrafos na parte inferior do cabeçalho quando a tela é pequena */
+  .head-bottom p {
+    font-size: 17px;
+    margin: 20px auto;
+  }
+}
+
+/* Estilos para a barra de rolagem, no caso a onde tem a logo e e botão de login*/
+.scroll-bg {
+  width: 100%;
+  height: 129.6px;
+  position: fixed;
+  top: -53px;
+  z-index: 9;
+  background-color: rgb(20, 20, 27);
+  background-color: transparent;
+}
+
+/* Estilos para a barra de rolagem quando ativa */
+.scroll-bg.active {
+  background-color: var(--dark);
+  transition: 0.3s ease-out;
+}
+
+/* Estilos para a navegação do site que normalmente não é exibida */
+.site-nav {
+  display: none;
+}
+
+/* Estilos para a barra lateral de navegação */
+.sidenav {
+  color: #fff;
+  width: 100%;
+}
+
+/* Estilos para a barra de navegação */
+.navbar {
+  margin-top: 50px;
+  list-style: none;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
+  top: -53px;
+  right: 15%;
+  width: 35%;
+  z-index: 10;
+}
+/* Estilos para os itens da barra de navegação */
+.navbar li a {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 0;
+  display: block;
+  letter-spacing: 1.5px;
+  transition: var(--transition);
+}
+/* Estilos para o hover nos itens da barra de navegação */
+.navbar li a:hover {
+  color: var(--yellow);
+}
+
+/* Estilos para o contêiner de botões fixos na tela */
+.btn-container {
+  display: flex;
+  width: 365px;
+  align-items: center;
+  height: 75.6px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+/* Estilos para os botões de cadastro e login */
+.sign-up,
+.log-in {
+  background: rgb(32, 31, 31);
+  color: #fff;
+}
+/* Estilos para os links de cadastro e login */
+.sign-up a,
+.log-in a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Media query para telas com largura máxima de 1200 pixels */
+@media (max-width: 1200px) {
+  /* Ajustes para a navegação do site quando a tela é menor */
+  .site-nav {
+    display: block;
+    position: fixed;
+    right: 5%;
+    font-size: 20px;
+  }
+  /* Ajustes para o nome do site no cabeçalho quando a tela é menor */
+  .site-name {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  /* Ajustes para a barra lateral de navegação quando a tela é menor */
+  .sidenav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    width: 300px;
+    padding: 20px;
+    transition: var(--transition);
+    z-index: 10;
+    background: var(--dark);
+  }
+  /* Ajustes para mostrar a barra lateral de navegação quando ativa */
+  .sidenav.show {
+    right: 0;
+  }
+  /* Estilos para o botão de cancelar na barra lateral de navegação */
+  .cancel-btn {
+    position: absolute;
+    right: 25px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  /* Estilos para o hover no botão de cancelar */
+  .cancel-btn:hover {
+    opacity: 0.7;
+  }
+  /* Ajustes para a barra de navegação quando a tela é menor */
+  .navbar {
+    display: block;
+    position: static;
+  }
+  /* Estilos para os itens da barra de navegação quando a tela é menor */
+  .navbar li a {
+    border-bottom: 0.5px solid rgba(249, 211, 66, 0.3);
+  }
+  /* Ajustes para o contêiner de botões quando a tela é menor */
+  .btn-container {
+    display: block;
+    width: auto;
+    height: auto;
+    position: static;
+  }
+  /* Esconder o texto dentro do contêiner de botões */
+  .btn-container span {
+    display: none;
+  }
+}
+
+/* Media query para telas com largura máxima de 500 pixels */
+@media (max-width: 500px) {
+  /* Ajustes para o cabeçalho quando a tela é pequena */
+  .header {
+    padding-top: 15px;
+  }
+  /* Ajustes para o nome do site no cabeçalho quando a tela é pequena */
+  .site-name {
+    width: 60%;
+  }
+  /* Ajustes para a navegação do site quando a tela é pequena */
+  .site-nav {
+    top: 30px;
+  }
+  /* Ajustes para a barra de rolagem quando a tela é pequena */
+  .scroll-bg {
+    height: 150px;
+  }
+  /* Esconder a barra lateral de navegação quando a tela é pequena */
+  .sidenav {
+    right: -110%;
+  }
+}
+
+/* Media query para telas com largura máxima de 350 pixels */
+@media (max-width: 350px) {
+  /* Ajustes para o nome do site e a navegação do site quando a tela é muito pequena */
+  .site-name,
+  .site-nav {
+    font-size: 16px;
+  }
+}
+
+/* Estilos para o título */
+.title {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 30px;
+  color: var(--yellow);
+  border-bottom: 5px solid var(--dark);
+  width: 100%;
+  margin: 15px 0;
+}
+
+/* Estilos para a largura da seção */
+.sec-width {
+  width: 85vw;
+  margin: 0 auto !important;
+}
+
+/* Estilos para os depoimentos na seção com largura específica */
+.sec-width .testimonial {
+  border-bottom: 5px solid #ec9646;
+  width: 100%;
+  color: #fff;
+  background-color: rgb(0,0,0.5);
+  background-color: rgba(0,0,0, 0.4);
+}
+
+/* Estilos para o formulário de reserva */
+.book {
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    url("images/banner-img.jpg") center/cover no-repeat;
+  color: #fff;
+  padding: 40px 60px;
+}
+/* Estilos para o formulário de reserva (grade) */
+.book-form {
+  display: grid;
+}
+/* Estilos para os itens do formulário */
+.form-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Estilos para o botão de envio no formulário de reserva */
+.book-form input[type="submit"] {
+  margin: 18px 0 0 0;
+  background: var(--dark);
+  color: #fff;
+  border: 1px solid #fff;
+}
+/* Estilos para rótulos e entradas do formulário */
+.book-form label,
+.book-form input {
+  width: 100%;
+}
+/* Estilos para rótulos do formulário */
+.book-form label {
+  font-weight: 600;
+  word-spacing: 5px;
+  padding-bottom: 8px;
+}
+/* Estilos para entradas do formulário, excluindo o botão */
+.book-form input:not(.btn) {
+  margin: 4px 0 16px 0;
+  padding: 12px 15px;
+  border-radius: 5px;
+  font-size: 17px;
+  border: none;
+}
+/* Estilos para focar nas entradas do formulário */
+.book-form input:focus {
+  outline: 0;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+}
+/* Media query para telas com largura mínima de 768 pixels */
+@media (min-width: 768px) {
+  /* Ajustes para o formulário de reserva em grade com 2 colunas */
+  .book-form {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+  }
+}
+/* Media query para telas com largura mínima de 1170 pixels */
+@media (min-width: 1170px) {
+  /* Ajustes para o formulário de reserva em grade com 3 colunas */
+  .book-form {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Media query para telas com largura mínima de 1370 pixels */
+@media (min-width: 1370px) {
+  /* Ajustes para o formulário de reserva em grade com 2 colunas, 3 colunas e 1 coluna */
+  .book-form {
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr 2fr;
+  }
+  /* Ajustes para a altura do formulário de reserva */
+  .book {
+    height: 40vh;
+    display: grid;
+  }
+}
+/* Media query para telas com largura máxima de 500 pixels */
+@media (max-width: 500px) {
+  /* Ajustes para o formulário de reserva quando a tela é pequena */
+  .book {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+  /* Estilos para os quartos*/
+  .rooms {
+    margin: 20px 0; /* Diminui a margem superior e inferior */
+    padding: 15px; /* Reduz o preenchimento interno */
+  }
+  /* Estilos para um quarto */
+  .room {
+    margin: 45px 0;
+    padding-bottom: 25px;
+    background: var(--dark);
+    color: #fff;
+    border-radius: 15px
+  }
+  /* Estilos para o texto dos quartos */
+  .room-text {
+    padding: 5px 20px;
+  }
+  /* Estilos para o título do quarto */
+  .room-text h3 {
+    font-size: 24px;
+  }
+  /* Estilos para a lista de características ddos quartos */
+  .room-text ul {
+    list-style-type: none;
+    margin: 15px 0;
+  }
+  /* Estilos para os itens da lista de características da sala */
+  .room-text ul li {
+    padding: 7px 0;
+  }
+  /* Estilos para o ícone na lista de características da sala */
+  .room-text ul li i {
+    color: var(--yellow);
+    margin-right: 10px;
+  
+  }
+  /* Estilos para o contêiner de texto da sala */
+  .cardText {
+    width: 100%;
+    height: auto;
+  
+  
+}
+
+
+
+/* Estilos para a imagem do cards do quartos*/
+.room-image {
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px
+}
+/* Estilos para a imagem dos quartos*/
+.room-image img {
+  object-fit: cover;
+  transition: var(--transition);
+  
+  border-radius: 10px; /* Diminui o raio da borda */
+}
+
+/* Estilos para a imagem da dos quartos  ao passar o mouse */
+.room-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Media query para telas com largura máxima de 1000 pixels */
+@media (max-width: 1000px) {
+  /* Ajustes para a imagem da sala quando a tela é média */
+  .room-image img {
+    object-fit: cover;
+  }
+}
+
+/* Media query para telas com largura máxima de 1000 pixels */
+@media (max-width: 1000px) {
+  /* Ajustes para a imagem da sala quando a tela é pequena */
+  .room-image img {
+    object-fit: contain;
+    height: auto;
+  }
+}
+
+/* Media query para telas com largura mínima de 940 pixels */
+@media (min-width: 940px) {
+  /* Ajustes para o contêiner de salas quando a tela é grande */
+  .rooms-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  /* Ajustes para uma sala quando a tela é grande */
+  .room {
+    flex: 0 0 calc(50% - 10px); /* Reduz ainda mais a largura das salas */
+    margin: 5px; /* Reduz a margem das salas */
+  }
+}
+
+/* Media query para telas com largura mínima de 1368 pixels */
+@media (min-width: 1368px) {
+  /* Ajustes para o layout das salas quando a tela é grande */
+  .rooms-container {
+    flex-direction: column;
+  }
+  /* Ajustes para cada quartos quando a tela é grande */
+  .room {
+    display: flex;
+    padding-bottom: 0;
+    margin: 3px 0; /* Reduz a margem das salas */
+  }
+}
+
+/* Estilos para o rodapé */
+/* Estilos para o contêiner do rodapé */
+.footer {
+ background-color:grey;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+/* Estilos para o contêiner do rodapé, incluindo largura e margens */
+.footer-container {
+  width: 85vw;
+  margin: 0 auto;
+  padding: 30px;
+}
+/* Estilos para o texto no rodapé, incluindo opacidade */
+.footer-container p,
+.footer-container a,
+.footer-container span {
+  opacity: 0.8;
+}
+/* Estilos para links no rodapé */
+.footer a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+/* Estilos para os ícones  de redes sociais no rodapé */
+.social-icons {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  
+}
+/* Estilos para cada ícone social, incluindo margens e transição */
+.social-icons li {
+  margin: 0 10px;
+  width: 50px;
+  height: 50px;
+  background: #454607;
+  border-radius: 50%;
+  transition: var(--transition);
+  cursor: pointer;
+  
+}
+/* Estilos para o hover nos ícones -redes-sociais */
+.social-icons li:hover {
+  background: #fff;
+  color: #2e2e2e;
+}
+/* Estilos para informações de contato, incluindo disposição em colunas */
+.contact-item span {
+  display: block;
+}
+
+/* Media query para telas com largura mínima de 900 pixels */
+@media (min-width: 900px) {
+  /* Ajustes para o layout do rodapé quando a tela é média */
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 60px;
+  }
+}
+
+/* Media query para telas com largura mínima de 1170 pixels */
+@media (min-width: 1170px) {
+  /* Ajustes para o layout do rodapé e texto no rodapé quando a tela é grande */
+  .footer {
+    text-align: left;
+  }
+  /* Ajustes para o layout do rodapé quando a tela é grande */
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* Ajustes para o espaçamento do texto no rodapé */
+  .footer-container div:nth-child(1) p {
+    padding-right: 20px;
+  }
+  /* Ajustes para a disposição dos itens de contato em colunas */
+  .contact-item {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    margin-bottom: 15px;
+    align-items: center;
+  }
+}
+
+/* Estilos para a classe showModal */
+.showModal {
+  position: fixed;
+  background: transparent;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+
+/* Estilos para a barra de rolagem personalizada */
+/* Estilos gerais da barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+/* Estilos do canto superior esquerdo da barra de rolagem */
+::-webkit-scrollbar-corner {
+  border-radius: 10px;
+  background: #ec9646;
+}
+/* Estilos da trilha da barra de rolagem */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+/* Estilos do "polegar" da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background: #ec9646;
+  border-radius: 10px;
+}
+
+/* Estilos para o corpo da página, permitindo rolar a barra de rolagem sobre o conteúdo */
+body {
+  overflow: overlay;
+}

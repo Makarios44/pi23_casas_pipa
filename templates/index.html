@@ -1,79 +1,250 @@
-{% load static %}
-{% load static %}
+{%load static%}
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CASAS</title>
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>oi</title>
+     
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <script src="{% static '%https://kit.fontawesome.com/dbed6b6114.js' %}" crossorigin="anonymous"></script>
     
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="{% static 'img/logo-ok.png' %}" alt="Logo principal">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons rel="stylesheet">
+    </head>
+    <body>
+
+
+        <!-- header -->
+<header class="header" id="header">
+    <div class="head-top">
+        <div class="site-name">
+            <img src="{% static 'img/logo-ok.png' %}" alt="logo">
         </div>
-        <div class="opcoes">
-            <button>Português</button>
-            <button>Casa/Fotos</button>
-            <button>Login</button>
+        <div class="site-nav">
+            <span id="nav-btn">MENU <i class="fas fa-bars"></i></span>
         </div>
-    </header>
-    <nav>
-        <div class="slider">
+    </div>
+</header>
 
-          <div classs="slides">
-            <!--Radio Buttons-->
-            <input type="radio" name="radio-btn" id="radio1">
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
-            <input type="radio" name="radio-btn" id="radio4">
-               <!--Fim Radio Buttons-->
-               
-                  <!--Slide images-->
-            <div class="first-slide">
-              <img src="{% static 'img/coco.jpg' %}" alt="imagem 1">    
-            </div>    
-            <div class="second-slide">
-              <img src="{% static 'img/logo-ok.png' %}" alt="imagem 2">    
-            </div>  
-            <div class="third-slide">
-              <img src="{% static 'img/coco.jpg' %}" alt="imagem 3">    
-            </div>  
-            <div class="fourth slide">
-              <img src="{% static 'img/coco.jpg' %}" alt="imagem 4">    
-            </div>  
-              <!--end of the slide images-->
+            <div class = "head-bottom flex">
+                <h2>Em Pipa, o Luxo é Sua Casa: Viva Uma Temporada Inesquecível!
+                </h2>
+                <!-- <div class="pointerarea"> -->
+                  <button type = "button" class = "head-btn" onclick="window.location='';" >Reserve já!!</button>
+                <!-- </div> -->
+            </div>
+        </header>
+        <!-- end of header -->
+        <!-- side navbar -->
+        <div class="scroll-bg"></div>
+        <div class = "sidenav" id = "sidenav">
+            <span class = "cancel-btn" id = "cancel-btn">
+                <i class = "fas fa-times"></i>
+            </span>
 
-              <!--Navigation-auto-->
-             <div class="navigation-auto">
-              <div class="auto-btn1"></div>
-              <div class="auto-btn2"></div>
-              <div class="auto-btn3"></div>
-              <div class="auto-btn4"></div>
-             </div> 
-
-
-
-
-
-
-
-          </div>
-
-          <div class="manual-navigation">
-              <label for="radio1" class="manual-btn"></label>
-              <label for="radio2" class="manual-btn"></label>
-              <label for="radio3" class="manual-btn"></label>
-              <label for="radi04" class="manual-btn"></label>
-          </div>
-
-
+            <ul class = "navbar">
+                <li><a href = "#header">Home</a></li>         
+                <li><a href = "#rooms">Rooms</a></li>
+            </ul>
+            <div class="btn-container">
+                <button class = "btn sign-up"><a href="login.html"> SignUp / SignIn </a> </button>
+            </div>
         </div>
-    </nav>
- 
-    
-    <script> src="script.js"</script>
-</body>
+        <!-- end of side navbar -->
+
+        <!-- fullscreen modal -->
+        <div id = "modal"></div>
+        <!-- end of fullscreen modal -->
+
+        <!-- body content  -->
+        
+
+        <section class = "rooms sec-width" id = "rooms">
+            <div class = "title" >
+                <h2 class="drk-md-hnd" >Rooms</h2>
+            </div>
+            <div class = "rooms-container">
+                <!-- single room -->
+                <article class = "room">
+                    <div class = "room-image">
+                        <img src = "{% static 'img/sala.jpg' %}" alt = "deluxe room image">
+                    </div>
+                    <div class = "room-text">
+                        <h3>Casa Cruzeiro- Pipa
+                        </h3>
+                        <ul>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Ocup.max.: 10 Pessoas
+
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Vista: Por-do-sol
+
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Acesso a internet
+                            </li>
+                        </ul>
+                        <div class="cardText">
+                            <p>Esta casa oferece varanda com rede, uma sala ampla e mobiliada, TV LCD de 50", 
+                                cozinha totalamente equipada e pronta para uso 
+                                ,3 suites climatizadas. </p>
+                            <p>Por favor, especifique o tipo de cama de sua preferência 
+                                (1 cama queen-size ou 2 de solteiro) antes da chegada..
+
+                            </p>
+                        </div>
+                        <p class = "rate">
+                            <span style="font-size:18.0pt" > R$500 /-</span> /Noite
+                        </p>
+                        <button type = "button" class = "btn" id="deluxe"><a class="booknw" href="booking.html">book now</a></button>
+                    </div>
+                </article>
+                <!-- end of single room -->
+                <!-- single room -->
+                <article class = "room">
+                    <div class = "room-image">
+                        <img src = "{% static 'img/sala.jpg' %}"alt = "twin room image">
+                    </div>
+                    <div class = "room-text">
+                        <h3>Casa Cruzeiro-Sibauma
+                        </h3>
+                        <ul>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Ocup.max.: 10 Pessoas.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Vista: Vista mar.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Acesso a internet.
+                            </li>
+                        </ul>
+                        <div class="cardText">
+                            <p>Esta casa oferece varanda com rede, TV LCD de 50", ar-condicionado, geladeira, 
+                                3 quartos sendo uma delas suite banheiro compartilhando para os outros dois </p>
+                            <p>
+                                quartos no andar de cima e outro banheiro social no andar de baixo da casa. Por favor,
+                                especifique o tipo de cama de sua preferência (1 cama queen-size ou 2 de solteiro) antes da chegada.
+                            </p>
+                        </div>
+                        <p class = "rate">
+                            <span style="font-size:18.0pt" >R$500/-</span> /Noite
+                        </p>
+                        <button type = "button" class = "btn" id="twin"><a class="booknw" href="booking.html" >book now</a></button>
+                    </div>
+                </article>
+                <!-- end of single room -->
+                <!-- single room -->
+                <article class = "room">
+                    <div class = "room-image">                
+                        <img src = "{% static 'img/IMG_3537.jpg' %}"alt = "room image">
+                    </div>
+                    <div class = "room-text">
+                        <h3>Casa da Iza</h3>
+                        <ul>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                Ocup.max.: 10 Pessoas.
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                5 minutos da praia do centro
+                            </li>
+                            <li>
+                                <i class = "fas fa-arrow-alt-circle-right"></i>
+                                2 minutos do mirante sunset bar
+                            </li>
+                        </ul>
+                        <div class="cardText">
+                            <p> Esta casa oferece varanda com rede, TV LCD de 50", ar-condicionado, geladeira, 
+                                3 quartos sendo uma delas suite banheiro compartilhando para os outros dois
+                            </p>
+                            <p> quartos no andar de cima e outro banheiro social no andar de baixo da casa. Por favor,
+                                especifique o tipo de cama de sua preferência (1 cama queen-size ou 2 de solteiro) antes da chegada.
+                            </p>
+                        </div>
+
+                            <p class = "rate">
+                            <span style="font-size:18.0pt" > R$500/- </span> /Noite
+                        </p>
+                        <button type = "button" class = "btn" id="standard"><a class="booknw" href="booking.html" >book now</a></button>
+                    </div>
+                </article>
+                <!-- end of single room -->
+            </div>
+        </section>
+
+
+        
+        <!-- end of body content -->
+
+        <!-- footer -->
+        <footer class = "footer">
+            <div class = "footer-container">
+                <div>
+                    <h2>Sobre Nós</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel veniam placeat soluta consequuntur! Ex provident porro veniam veritatis aliquid, tempora culpa quae deserunt eligendi impedit omnis incidunt quas hic. Quam.
+                        </p>
+                    <ul class = "social-icons">
+                        <li class = "flex">
+                            <i class = "fa fa-twitter fa-2x"></i>
+                        </li>
+                        <li class = "flex">
+                            <i class = "fa fa-facebook fa-2x"></i>
+                        </li>
+                        <li class = "flex">
+                            <i class = "fa fa-instagram fa-2x"></i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2>Links uteis</h2>
+                    <a href = "#header">Home</a>
+                    <a href = "#rooms">Rooms</a>
+              
+                </div>
+
+
+                <div>
+                    <h2>Contatos</h2>
+                    <div class = "contact-item">
+                        <span>
+                            <i class = "fas fa-map-marker-alt"></i>
+                        </span>
+                        <span>
+                            Praia da pipa, R. albacora 6019
+                        </span>
+                    </div>
+                    <div class = "contact-item">
+                        <span>
+                            <i class = "fas fa-phone-alt"></i>
+                        </span>
+                        <span>
+                         + 55 84 998424140
+                        </span>
+                    </div>
+                    <div class = "contact-item">
+                        <span>
+                            <i class = "fas fa-envelope"></i>
+                        </span>
+                        <span>
+                            mmakarios44@gmail.com
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end of footer -->
+
+        <script src="{% static 'javascript\script.js' %}"></script>
+
+    </body>
 </html>
