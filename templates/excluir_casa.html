@@ -1,0 +1,22 @@
+<!-- excluir_casa.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Exclusão</title>
+</head>
+
+<body>
+    <h2>Confirmar Exclusão</h2>
+    <p>Tem certeza de que deseja excluir a casa "{{ casa.nome }}"?</p>
+    <form method="post" action="">
+        {% csrf_token %}
+        <button type="submit">Sim, Excluir</button>
+    </form>
+    <a href="{% url 'index' %}">Cancelar</a>
+</body>
+
+</html>

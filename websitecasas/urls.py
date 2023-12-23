@@ -17,11 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core.views import *
-
+from core.views import formcad, editar_casas, remover_casa
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name="home"),
-    path('login.html',login, name="login"),
-    path('booking.html', booking, name ="booking"),
-
-]   
+    path('login.html/',login, name="login"),
+    path('booking/', booking, name ="booking"),
+    path('formcad/', formcad, name="formcad"),
+    path('editar_casas/<int:id>', editar_casas, name="editar_casas"),
+    path('casa_remover/<int:id>',remover_casa, name = "remover_casa"),
+    path('cadastro/', cadastro, name="cadastro" ),
+    ]       

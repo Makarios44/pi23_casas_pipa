@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title> 
+    <link rel="stylesheet" href="{% static 'formcad.css' %}">
+    
+</head>
+<body>
+  <div class="titulo">
+    <h1>Detalhamento do tipo da casa</h1>
+  </div>
+
+
+  <h2>Cadastrar Nova Casa</h2>
+  <div class="formulario">
+    <form method="post">
+      {% csrf_token %}
+     {{form_casa}}
+      <p> <input  type="submit" value="cadastrar" /></p>
+    </form>
+  </div>
+

@@ -7,9 +7,9 @@
      
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
-        <script src="{% static '%https://kit.fontawesome.com/dbed6b6114.js' %}" crossorigin="anonymous"></script>
-    
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons rel="stylesheet">
+        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     </head>
     <body>
 
@@ -45,9 +45,13 @@
             <ul class = "navbar">
                 <li><a href = "#header">Home</a></li>         
                 <li><a href = "#rooms">Rooms</a></li>
+                <li><a href="{% url 'formcad' %}">cadastras casas </a></li>
+
             </ul>
             <div class="btn-container">
-                <button class = "btn sign-up"><a href="login.html"> SignUp / SignIn </a> </button>
+                <button class="btn sign-up"><a href="{% url 'login' %}">SignUp / SignIn</a></button>
+
+
             </div>
         </div>
         <!-- end of side navbar -->
@@ -58,127 +62,44 @@
 
         <!-- body content  -->
         
-
-        <section class = "rooms sec-width" id = "rooms">
-            <div class = "title" >
-                <h2 class="drk-md-hnd" >Rooms</h2>
+        <section class="rooms sec-width" id="rooms">
+            <div class="title">
+              <h2 class="drk-md-hnd">Casas Disponíveis</h2>
             </div>
-            <div class = "rooms-container">
-                <!-- single room -->
-                <article class = "room">
-                    <div class = "room-image">
-                        <img src = "{% static 'img/sala.jpg' %}" alt = "deluxe room image">
+            <div class="rooms-container">
+                {% for casa in todas_casas %}
+                <article class="room">
+                  <div class="room-image">
+                    {% if casa.fotos %}
+                     <img src="{{ casa.fotos.url }}" alt="{{ casa.nome }}">
+                    {% else %}
+                      <p>Nenhuma imagem disponível</p>
+                    {% endif %}
+                  </div>
+                  <div class="room-text">
+                    <h3>{{ casa.nome }}</h3>
+                    <ul>
+                      <li><i class="fas fa-arrow-alt-circle-right"></i> Ocup.max.: {{ casa.quantidade_quartos }} Pessoas</li>
+                      <li><i class="fas fa-arrow-alt-circle-right"></i> Piscina: {% if casa.possui_piscina %}Sim{% else %}Não{% endif %}</li>
+                      <!-- Adicione mais detalhes conforme necessário -->
+                    </ul>
+                    <div class="cardText">
+                      <p>{{ casa.introducao_casa }}</p>
                     </div>
-                    <div class = "room-text">
-                        <h3>Casa Cruzeiro- Pipa
-                        </h3>
-                        <ul>
-                            <li>
-                                <i class = "fas fa-arrow-alt-circle-right"></i>
-                                Ocup.max.: 10 Pessoas
-
-                            </li>
-                            <li>
-                                <i class = "fas fa-arrow-alt-circle-right"></i>
-                                Vista: Por-do-sol
-
-                            </li>
-                            <li>
-                                <i class = "fas fa-arrow-alt-circle-right"></i>
-                                Acesso a internet
-                            </li>
-                        </ul>
-                        <div class="cardText">
-                            <p>Esta casa oferece varanda com rede, uma sala ampla e mobiliada, TV LCD de 50", 
-                                cozinha totalamente equipada e pronta para uso 
-                                ,3 suites climatizadas. </p>
-                            <p>Por favor, especifique o tipo de cama de sua preferência 
-                                (1 cama queen-size ou 2 de solteiro) antes da chegada..
-
-                            </p>
-                        </div>
-                        <p class = "rate">
-                            <span style="font-size:18.0pt" > R$500 /-</span> /Noite
-                        </p>
-                        <button type = "button" class = "btn" id="deluxe"><a class="booknw" href="booking.html">book now</a></button>
-                    </div>
-                </article>
-                <!-- end of single room -->
-                <!-- single room -->
-                <article class = "room">
-                    <div class = "room-image">
-                        <img src = "{% static 'img/sala.jpg' %}"alt = "twin room image">
-                    </div>
-                    <div class = "room-text">
-                        <h3>Casa Cruzeiro-Sibauma
-                        </h3>
-                        <ul>
-                            <li>
-                                <i class = "fas fa-arrow-alt-circle-right"></i>
-                                Ocup.max.: 10 Pessoas.
-                            </li>
-                            <li>
-                                <i class = "fas fa-arrow-alt-circle-right"></i>
-                                Vista: Vista mar.
-                            </li>
-                            <li>
-                                <i class = "fas fa-arrow-alt-circle-right"></i>
-                                Acesso a internet.
-                            </li>
-                        </ul>
-                        <div class="cardText">
-                            <p>Esta casa oferece varanda com rede, TV LCD de 50", ar-condicionado, geladeira, 
-                                3 quartos sendo uma delas suite banheiro compartilhando para os outros dois </p>
-                            <p>
-                                quartos no andar de cima e outro banheiro social no andar de baixo da casa. Por favor,
-                                especifique o tipo de cama de sua preferência (1 cama queen-size ou 2 de solteiro) antes da chegada.
-                            </p>
-                        </div>
-                        <p class = "rate">
-                            <span style="font-size:18.0pt" >R$500/-</span> /Noite
-                        </p>
-                        <button type = "button" class = "btn" id="twin"><a class="booknw" href="booking.html" >book now</a></button>
-                    </div>
-                </article>
-                <!-- end of single room -->
-                <!-- single room -->
-                <article class = "room">
-                    <div class = "room-image">                
-                        <img src = "{% static 'img/IMG_3537.jpg' %}"alt = "room image">
-                    </div>
-                    <div class = "room-text">
-                        <h3>Casa da Iza</h3>
-                        <ul>
-                            <li>
-                                <i class = "fas fa-arrow-alt-circle-right"></i>
-                                Ocup.max.: 10 Pessoas.
-                            </li>
-                            <li>
-                                <i class = "fas fa-arrow-alt-circle-right"></i>
-                                5 minutos da praia do centro
-                            </li>
-                            <li>
-                                <i class = "fas fa-arrow-alt-circle-right"></i>
-                                2 minutos do mirante sunset bar
-                            </li>
-                        </ul>
-                        <div class="cardText">
-                            <p> Esta casa oferece varanda com rede, TV LCD de 50", ar-condicionado, geladeira, 
-                                3 quartos sendo uma delas suite banheiro compartilhando para os outros dois
-                            </p>
-                            <p> quartos no andar de cima e outro banheiro social no andar de baixo da casa. Por favor,
-                                especifique o tipo de cama de sua preferência (1 cama queen-size ou 2 de solteiro) antes da chegada.
-                            </p>
-                        </div>
-
-                            <p class = "rate">
-                            <span style="font-size:18.0pt" > R$500/- </span> /Noite
-                        </p>
-                        <button type = "button" class = "btn" id="standard"><a class="booknw" href="booking.html" >book now</a></button>
-                    </div>
-                </article>
-                <!-- end of single room -->
+                    <p class="rate">
+                      <span style="font-size:18.0pt">R$ {{ casa.preco }} /-</span> /Noite
+                    </p>
+                    <button type="button" class="btn"><a class="booknw" href="{% url 'booking' %}">Reservar Agora</a></button>
+                    <a href="{% url 'editar_casas' casa.id %}">EDITAR</a>
+                    <a href="{% url 'remover_casa' casa.id %}"> REMOVER</a>
+                  </div>
+                </article>  
+                {% empty %}
+                <P>não existem casas cadastradas</p>
+              {% endfor %}  
+              
             </div>
+          </section>
         </section>
 
 
