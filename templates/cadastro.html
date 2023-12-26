@@ -1,78 +1,46 @@
-{% load static %}
+{%  load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Signup</title>
 
-  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
 </head>
 <body>
-  <div id="container" class="container">
-    <!-- FORM SECTION -->
+  <div class="container">
     <div class="row">
-      <!-- LOGIN FORMULARIO -->
-      <div class="col align-items-center flex-col sign-in">
-        <div class="form-wrapper align-items-center">
-          <div class="form sign-in">
-            <div class="input-group">
-              <i class='bx bxs-user'></i>
-              <input type="text" placeholder="Username">
-            </div>
-            <div class="input-group">
-              <i class='bx bxs-lock-alt'></i>
-              <input type="password" placeholder="Password">
-            </div>
+      <div class="col align-items-center flex-col sign-up">
 
-            <div class="input-group">
-                <i class='bx bxs-lock-alt'></i>
-                <input type="password" placeholder="Password">
+        <form method="post" action="{% url 'cadastro' %}">
+               {% csrf_token %}
+        
+          <div class="form-wrapper align-items-center">
+            <div class="form sign-up">
+              <h2>Create an Account</h2>
+              <div class="input-group">
+                <i class='bx bxs-user'></i>
+                <input type="text" name="username" placeholder="username" required>
               </div>
-            <button>
-            
-                <div class="input-group">
-                    <i class='bx bxs-lock-alt'></i>
-                    <input type="password" placeholder="Password">
-                  </div> 
-              Sign in
-            </button>
-            <p>
-              <b>
-                Forgot password?
-              </b>
-            </p>
-            <p>
-              <span>
-                Don't have an account?
-              </span>
-              <b class="pointer">
-                <a href="{% url 'cadastro' %}">Sign up here</a>
-              </b>
-            </p>
+              <div class="input-group">
+                <i class='bx bx-mail-send'></i>
+                <input type="email" name="email" placeholder="email" required>
+              </div>
+              <div class="input-group">
+                <i class='bx bxs-lock-alt'></i>
+                <input type="password" name="password" placeholder="senha" required>
+              </div>
+              
+              <input type="submit" value="cadastrar">
+              <p>Already have an account? <a href="{% url 'login' %}">Sign in here</a></p>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
-      <!-- END LOGIN -->
     </div>
-    <!-- END FORM SECTION -->
-    <!-- CONTENT SECTION -->
-    <div class="row content-row">
-      <!-- SIGN IN CONTENT -->
-      <div class="col align-items-center flex-col">
-        <div class="text sign-in">
-          <h2>
-            
-          </h2>
-        </div>
-        <div class="img sign-in">
-        </div>
-      </div>
-      <!-- END SIGN IN CONTENT -->
-    </div>
-    <!-- END CONTENT SECTION -->
   </div>
-  <script src="{% static 'javascript\login.js' %}"></script>
+  <script src="{% static 'javascript/login.js' %}"></script>
 </body>
 </html>
