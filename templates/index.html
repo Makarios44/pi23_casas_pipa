@@ -78,19 +78,25 @@
                       <!-- Adicione mais detalhes conforme necessário -->
                     </ul>
                     <div class="cardText">
-                      <p>{{ casa.introducao_casa }}</p>
-                    </div>
-                    <p class="rate">
-                      <span style="font-size:18.0pt">R$ {{ casa.preco }} /-</span> /Noite
-                    </p>
-                    <button type="button" class="btn"><a class="booknw" href="{% url 'booking' %}">Reservar Agora</a></button>
-                    <a href="{% url 'editar_casas' casa.id %}">EDITAR</a>
-                    <a href="{% url 'remover_casa' casa.id %}"> REMOVER</a>
-                  </div>
-                </article>  
-                {% empty %}
-                <P>não existem casas cadastradas</p>
-              {% endfor %}  
+                        <p>{{ casa.introducao_casa }}</p>
+                      </div>
+                      <p class="rate">
+                        <span style="font-size:18.0pt">R$ {{ casa.preco }} /-</span> /Noite
+                      </p>
+                      <button type="button" class="btn"><a class="booknw" href="{% url 'booking' %}">Reservar Agora</a></button>
+                      
+                      {% if user.is_authenticated %}
+                        <a href="{% url 'editar_casas' casa.id %}">EDITAR</a>
+                        <a href="{% url 'remover_casa' casa.id %}"> REMOVER</a>
+                        {% if user == casa.owner %}
+                          {# Botões adicionais ou lógica específica para o proprietário da casa #}
+                        {% endif %}
+                      {% endif %}
+                      </div>
+                      </article>
+                      {% empty %}
+                        <p>Não existem casas cadastradas</p>
+                      {% endfor %}
               
             </div>
           </section>

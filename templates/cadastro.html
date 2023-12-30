@@ -1,4 +1,4 @@
-{%  load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,25 +15,35 @@
       <div class="col align-items-center flex-col sign-up">
 
         <form method="post" action="{% url 'cadastro' %}">
-               {% csrf_token %}
-        
+          {% csrf_token %}
+
           <div class="form-wrapper align-items-center">
             <div class="form sign-up">
               <h2>Create an Account</h2>
               <div class="input-group">
+                <i class='bx bxs-id-card'></i>
+                <input type="text" name="cpf" placeholder="CPF" required>
+              </div>
+              <div class="input-group">
                 <i class='bx bxs-user'></i>
-                <input type="text" name="username" placeholder="username" required>
+                <input type="text" name="username" placeholder="Username" required>
               </div>
               <div class="input-group">
                 <i class='bx bx-mail-send'></i>
-                <input type="email" name="email" placeholder="email" required>
+                <input type="email" name="email" placeholder="Email" required>
               </div>
               <div class="input-group">
                 <i class='bx bxs-lock-alt'></i>
-                <input type="password" name="password" placeholder="senha" required>
+                <input type="password" name="password" placeholder="Password" required>
               </div>
-              
-              <input type="submit" value="cadastrar">
+              <div class="input-group">
+                <i class='bx bxs-user'></i>
+                <select name="user_type" required>
+                  <option value="owner">House Owner</option>
+                  <option value="renter">House Renter</option>
+                </select>
+              </div>
+              <input type="submit" value="Sign Up" class="submit-btn">
               <p>Already have an account? <a href="{% url 'login' %}">Sign in here</a></p>
             </div>
           </div>

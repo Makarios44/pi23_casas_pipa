@@ -16,7 +16,8 @@
   
   html,
   body {
-      background-image: url(./images/customer-banner.jpg);
+
+      background-image: url("../img/customer-banner.jpg");
       height: 100vh;
       overflow: hidden;
   }

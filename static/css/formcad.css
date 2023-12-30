@@ -1,14 +1,16 @@
+/* Adicione estilos conforme necessário */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
+    padding: 0;
 }
 
 .titulo {
     background-color: #333;
     color: #fff;
-    padding: 20px;
     text-align: center;
+    padding: 10px;
 }
 
 .formulario {
@@ -16,36 +18,43 @@ body {
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.formulario p {
-    margin: 10px 0;
+.formulario h2 {
+    font-size: 24px;
+    color: #333;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="file"] {
+.formulario label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="number"],
+.formulario textarea,
+.formulario input[type="file"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
 
-input[type="checkbox"] {
-    margin-right: 5px;
+.formulario input[type="checkbox"] {
+    margin-top: 10px;
 }
 
-input[type="submit"] {
+.formulario input[type="submit"] {
     background-color: #333;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.formulario input[type="submit"]:hover {
     background-color: #555;
 }
+
+/* Adicione mais estilos conforme necessário */

@@ -6,20 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title> 
     <link rel="stylesheet" href="{% static 'formcad.css' %}">
-    
 </head>
 <body>
-  <div class="titulo">
-    <h1>Detalhamento do tipo da casa</h1>
-  </div>
+    <div class="titulo">
+        <h1>Detalhamento do tipo da casa</h1>
+    </div>
+    <div class="formulario">
+        <form method="post" enctype="multipart/form-data">  
+            {% csrf_token %}
 
-
-  <h2>Cadastrar Nova Casa</h2>
-  <div class="formulario">
-    <form method="post">
-      {% csrf_token %}
-     {{form_casa}}
-      <p> <input  type="submit" value="cadastrar" /></p>
-    </form>
-  </div>
-
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                {{ form.errors }}
+            </div>
+            {% endif %}
+            
+            <div class="formulario">
+                <h2>Cadastrar Nova Casa</h2>
+                
+                <!-- Campo Nome -->
+                <label for="id_nome">Nome:</label>
+                <input type="text" id="id_nome" name="nome" required>
+                
+                <!-- Campo Quantidade de Quartos -->
+                <label for="id_quantidade_quartos">Quantidade de Quartos:</label>
+                <input type="number" id="id_quantidade_quartos" name="quantidade_quartos" required>
+                
+                <!-- Campo Possui Piscina -->
+                <label for="id_possui_piscina">Possui Piscina:</label>
+                <input type="checkbox" id="id_possui_piscina" name="possui_piscina">
+                
+                <!-- Campo Introdução da Casa -->
+                <label for="id_introducao_casa">Introdução da Casa:</label>
+                <textarea id="id_introducao_casa" name="introducao_casa" rows="4" required></textarea>
+                
+                <!-- Campo Fotos -->
+                <label for="id_fotos">Fotos:</label>
+                <input type="file" id="id_fotos" name="fotos" accept="image/*">
+                
+                <!-- Campo Preço -->
+                <label for="id_preco">Preço:</label>
+                <input type="text" id="id_preco" name="preco">
+                
+                <!-- Botão de Envio -->
+                <input type="submit" value="Cadastrar Casa">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+  

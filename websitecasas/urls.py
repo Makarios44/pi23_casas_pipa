@@ -19,13 +19,15 @@ from django.contrib import admin
 from django.urls import path
 from core.views import *
 from core.views import formcad, editar_casas, remover_casa
-from django.contrib.auth.views import LoginView, LogoutView
-from core.views import perfil
+from django.contrib.auth.views import  LogoutView
+from core.views import views_perfil
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name="home"),
-    path('login/', LoginView.as_view(), name='login'),
-    path('perfil/', perfil, name='perfil'),
+    path('login/', login_view, name='login'),
+    path('perfil/', views_perfil, name='perfil'),
     path('booking/', booking, name ="booking"),
     path('formcad/', formcad, name="formcad"),
     path('editar_casas/<int:id>', editar_casas, name="editar_casas"),
@@ -36,3 +38,5 @@ urlpatterns = [
  
 
 ]
+
+#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

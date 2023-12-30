@@ -43,7 +43,7 @@
             </span>
 
             <div class="btn-container">
-                <button class="btn sign-up"><a href="{% url 'login' %}">Login</a></button>
+               
 
                 <button class="btn sign-up"><a href="{% url 'formcad' %}">cadastrar_casas</a></button>
 
@@ -70,7 +70,7 @@
                 <article class="room">
                   <div class="room-image">
                     {% if casa.fotos %}
-                     <img src="{{ casa.fotos.url }}" alt="{{ casa.nome }}">
+                    <img src="{{ casa.fotos.url }}" alt="{{ casa.nome }}">
                     {% else %}
                       <p>Nenhuma imagem disponível</p>
                     {% endif %}
@@ -89,8 +89,10 @@
                       <span style="font-size:18.0pt">R$ {{ casa.preco }} /-</span> /Noite
                     </p>
                     <button type="button" class="btn"><a class="booknw" href="{% url 'booking' %}">Reservar Agora</a></button>
+                    {% if user.is_authenticated and user == casa.owner %}
                     <a href="{% url 'editar_casas' casa.id %}">EDITAR</a>
                     <a href="{% url 'remover_casa' casa.id %}"> REMOVER</a>
+                  {% endif %}
                   </div>
                 </article>  
                 {% empty %}

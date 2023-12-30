@@ -68,9 +68,10 @@ body {
     color: var(--gray-2);
 }
 
-.input-group input {
+.input-group input,
+.input-group select {
     width: 100%;
-    padding: 10px 30px;
+    padding: 10px 15px; /* Adjusted padding for consistent sizing */
     font-size: 1rem;
     background-color: var(--gray);
     border-radius: .5rem;
@@ -78,14 +79,14 @@ body {
     outline: none;
 }
 
-.input-group input:focus {
+.input-group input:focus,
+.input-group select:focus {
     border: 0.125rem solid var(--primary-color);
 }
 
-button {
-    cursor: pointer;
+.submit-btn {
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 15px; /* Adjusted padding for consistent sizing */
     border-radius: .5rem;
     border: none;
     background-color: var(--primary-color);
@@ -94,7 +95,7 @@ button {
     outline: none;
 }
 
-button:hover {
+.submit-btn:hover {
     background-color: darken(var(--primary-color), 10%);
 }
 
