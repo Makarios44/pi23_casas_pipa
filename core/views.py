@@ -86,19 +86,12 @@ def booking(request):
 @has_role_decorator('proprietario')
 # Exemplo de como salvar uma casa no seu formulário de criação
 def formcad(request):
-    print("Iniciando formcad")
-    try:
-        form = CasaForm(request.POST)
-        print("Formulário criado")
-        if form.is_valid():
-            casa = form.save(commit=False)
-            casa.owner = request.user  # Define o proprietário como o usuário autenticado
-            casa.save()
-            print("Casa salva com sucesso")
-            return redirect('perfil')
-    except Exception as e:
-        print(f"Erro ao salvar casa: {e}")
-
+    form = CasaForm(request.POST)
+    if form.is_valid():
+        casa = form.save(commit=False)
+        casa.owner = request.user  # Define o proprietário como o usuário autenticado
+        casa.save()
+        return redirect('perfil')
     contexto = {
         'form_casa': form
     }
