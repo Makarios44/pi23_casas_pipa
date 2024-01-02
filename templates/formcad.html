@@ -5,22 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title> 
-    <link rel="stylesheet" href="{% static 'formcad.css' %}">
+   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/formcad.css' %}">
+    
 </head>
 <body>
     <div class="titulo">
         <h1>Detalhamento do tipo da casa</h1>
     </div>
     <div class="formulario">
-        <form method="post" enctype="multipart/form-data">  
-            {% csrf_token %}
-
-            {% if form.errors %}
-            <div class="alert alert-danger">
-                {{ form.errors }}
-            </div>
-            {% endif %}
-            
+        <form id ="form" method="POST" enctype="multipart/form-data" action="{% url 'formcad' %}" >
+            <!--*enctype="multipart/form-data"-->   
+            {% csrf_token %}   
             <div class="formulario">
                 <h2>Cadastrar Nova Casa</h2>
                 
@@ -51,6 +47,7 @@
                 <!-- Botão de Envio -->
                 <input type="submit" value="Cadastrar Casa">
             </div>
+            
         </form>
     </div>
 </body>

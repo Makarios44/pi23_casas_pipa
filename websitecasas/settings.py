@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'websitecasas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db1.sqlite3')
     }
 }
 
@@ -119,7 +119,8 @@ USE_TZ = True
 
 
 # URL onde os arquivos estáticos serão servidos
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'   
 # Diretório onde os arquivos estáticos coletados serão armazenados

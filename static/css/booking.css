@@ -14,6 +14,7 @@
 
 #booking {
 	font-family: 'Montserrat', sans-serif;
+	background-image: url("../img/quarto.jpg");
 	background-size: cover;
 	background-position: center;
 }

@@ -65,7 +65,7 @@
                 <article class="room">
                   <div class="room-image">
                     {% if casa.fotos %}
-                     <img src="{{ casa.fotos.url }}" alt="{{ casa.nome }}">
+                    <img src="{{casa.fotos.url}} "  alt="{{ casa.nome }}">
                     {% else %}
                       <p>Nenhuma imagem disponível</p>
                     {% endif %}
@@ -94,8 +94,9 @@
                       {% endif %}
                       </div>
                       </article>
-                      {% empty %}
+                      {% if empty %}
                         <p>Não existem casas cadastradas</p>
+                      {% endif %}
                       {% endfor %}
               
             </div>

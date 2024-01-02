@@ -14,6 +14,10 @@ class Casa(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)  
 
     def __str__(self):
-        return self.nome
+       return f'{self.nome} {self.quantidade_quartos} {self.fotos} {self.possui_piscina} {self.introducao_casa} {self.preco}'
     
 
+class Reserva(models.Model):
+    casa = models.ForeignKey(Casa, on_delete=models.CASCADE)
+    data_check_in = models.DateField()
+    data_check_out = models.DateField()

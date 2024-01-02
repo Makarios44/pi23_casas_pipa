@@ -14,17 +14,19 @@
     <body>
 
 
-        <!-- header -->
-<header class="header" id="header">
-    <div class="head-top">
-        <div class="site-name">
-            <img src="{% static 'img/logo-ok.png' %}" alt="logo">
-        </div>
-        <div class="site-nav">
-            <span id="nav-btn">MENU <i class="fas fa-bars"></i></span>
-        </div>
-    </div>
-</header>
+        <header class="header" id="header">
+            <div class="head-top">
+                <div class="site-name">
+                    <img src="{% static 'img/logo-ok.png' %}" alt="logo">
+                </div>
+                <div class="site-nav">
+                    <span id="nav-btn">MENU <i class="fas fa-bars"></i></span>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'perfil' %}" class="profile-btn">Perfil</a>
+                    {% endif %}
+                </div>
+            </div>
+        </header>
 
             <div class = "head-bottom flex">
                 <h2>Em Pipa, o Luxo é Sua Casa: Viva Uma Temporada Inesquecível!
@@ -102,8 +104,34 @@
             </div>
           </section>
         </section>
-
-
+        <section class="reservas sec-width" id="reservas">
+            <div class="title">
+                <h2 class="drk-md-hnd">Suas Reservas</h2>
+            </div>
+            <div class="reservas-container">
+                {% for reserva in reservas_do_usuario %}
+                    <!-- Exiba detalhes da reserva -->
+                    <div class="reserva-item">
+                        <p>Casa: {{ reserva.casa.nome }}</p>
+                        <p>Check-in: {{ reserva.data_check_in }}</p>
+                        <p>Check-out: {{ reserva.data_check_out }}</p>
+                        <!-- Adicione mais detalhes conforme necessário -->
+                        {% if user_type == 'proprietario' %}
+                            <a href="{% url 'cancelar_reserva' reserva.id %}">Cancelar Reserva</a>
+                        {% endif %}
+                    </div>
+                {% empty %}
+                    <p>Você não possui reservas no momento.</p>
+                {% endfor %}
+        
+                <!-- Adicione o bloco condicional para exibir ou não o botão de reserva -->
+                {% if user_type == 'locatario' %}
+                    <p>Desculpe, você não tem permissão para reservar casas.</p>
+                {% elif user_type == 'proprietario' %}
+                    <button type="button" class="btn"><a class="booknw" href="{% url 'booking' %}">Reservar Agora</a></button>
+                {% endif %}
+            </div>
+        </section>
         
         <!-- end of body content -->
 

@@ -7,6 +7,6 @@ from .models import Casa
 class CasaForm(ModelForm):
     class Meta:
         model = Casa
-        fields = '__all__'
+        fields = ['nome','quantidade_quartos','possui_piscina','introducao_casa','preco','fotos']
 
 

@@ -36,7 +36,8 @@ urlpatterns = [
 
     path("logout/", LogoutView.as_view(), name="logout"),
  
+    path('reservar_casa/', reservar_casa, name='reservar_casa'),
+    path('cancelar_reserva/<int:id>/', cancelar_reserva, name='cancelar_reserva'),
 
-]
 
-#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
