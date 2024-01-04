@@ -129,16 +129,16 @@ img {
 
 /* Estilos para o cabeçalho da página (header) */
 .header {
-  /* Gradiente de fundo com imagem e ajustes de cor e posição */
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-    url("images/IMG_3510.jpg") center/cover no-repeat;
+  background-image: url("../img/IMG_3510.jpg");
   min-height: 100vh; /* Altura mínima da seção do cabeçalho */
   color: #fff; /* Cor do texto */
-  padding: 25px; /* Preenchimento interno de 25 pixels */
+  padding: 25px; /* Preenchimento interno de 25  background-image: url("paper.gif")pixels */
   display: flex; /* Exibição como flexível para o uso de flexbox */
   flex-direction: column; /* Coluna principal */
   align-content: stretch; /* Estender os itens verticalmente na coluna */
   background-position: 50% 66%; /* Posição de fundo centrada na vertical e 66% na horizontal */
+  background-repeat: no-repeat; /* Não repetir a imagem de fundo */
+  background-size: cover; /* Cobrir completamente o elemento, mantendo */
 }
 
 /* Estilos para a parte superior do cabeçalho */
@@ -247,6 +247,12 @@ img {
 .scroll-bg.active {
   background-color: var(--dark);
   transition: 0.3s ease-out;
+  background-image: url("../img/LOGO.png");
+  background-repeat: no-repeat;
+  background-position: left top; /* Alinha a imagem no canto superior esquerdo */
+  background-attachment: fixed; /* Fixa a imagem na área de visualização */
+  background-size: auto 12%; /* Garante qu*/
+
 }
 
 /* Estilos para a navegação do site que não é exibida */

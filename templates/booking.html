@@ -29,8 +29,10 @@
                                     <span class="form-label">Select a Room</span>
                                     <select class="form-control" name="casa_id" required>
                                         <option></option>
-                                        {% for casa in todas_casas %}
+                                        {% for casa in casas_disponiveis %}
                                             <option value="{{ casa.id }}">{{ casa.nome }}</option>
+
+                                            
                                         {% endfor %}
                                     </select>
                                 </div>

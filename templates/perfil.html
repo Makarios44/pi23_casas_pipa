@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>oi</title>
+        <title>Home</title>
      
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
@@ -17,7 +17,7 @@
         <header class="header" id="header">
             <div class="head-top">
                 <div class="site-name">
-                    <img src="{% static 'img/logo-ok.png' %}" alt="logo">
+                    <img src="{% static 'img/LOGO.png' %}" alt="logo">
                 </div>
                 <div class="site-nav">
                     <span id="nav-btn">MENU <i class="fas fa-bars"></i></span>
@@ -46,12 +46,12 @@
 
             <div class="btn-container">
                
+              
+                  <button class="btn sign-up"><a href="{% url 'formcad' %}">Cadastrar Casas</a></button>
+                
+                  <button class="btn sign-up"><a href="{% url 'login' %}">Sair</a></button>
 
-                <button class="btn sign-up"><a href="{% url 'formcad' %}">cadastrar_casas</a></button>
-
-                <button class="btn sign-up"><a href="{% url 'logout' %}">sair</a></button>
-
-
+        
 
             </div>
         </div>
@@ -140,7 +140,7 @@
             <div class = "footer-container">
                 <div>
                     <h2>Sobre Nós</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel veniam placeat soluta consequuntur! Ex provident porro veniam veritatis aliquid, tempora culpa quae deserunt eligendi impedit omnis incidunt quas hic. Quam.
+                    <p>Bem-vindo à Casas em Pipa, sua maneira fácil e eficiente de alugar casas em Tibau do Sul e região. Conectamos locatários a propriedades incríveis em Pipa, oferecendo uma experiência simplificada e personalizada. Encontre seu lar ideal conosco.</p>
                         </p>
                     <ul class = "social-icons">
                         <li class = "flex">
@@ -158,7 +158,7 @@
                 <div>
                     <h2>Links uteis</h2>
                     <a href = "#header">Home</a>
-                    <a href = "#rooms">Rooms</a>
+                    
               
                 </div>
 
@@ -195,6 +195,12 @@
         <!-- end of footer -->
 
         <script src="{% static 'javascript\script.js' %}"></script>
-
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     </body>
 </html>

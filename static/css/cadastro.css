@@ -13,11 +13,13 @@
 }
 
 body {
-    background-color: var(--gray);
+    background-image: url("../img/buggy.jpg");
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-repeat: no-repeat; /* Não repetir a imagem de fundo */
+    background-size: cover; /* Cobrir completamente o elemento, mantendo */
 }
 
 .container {

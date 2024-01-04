@@ -118,6 +118,7 @@ img {
   height: 70vh; /* Altura da imagem limitada a 70% da altura da tela */
   object-fit: fill; /* Preenchimento total da área de visualização com a imagem */
   display: block; /* Exibição como bloco para centralização automática */
+  
 }
 
 /* Estilos para telas menores que 500px de largura */
@@ -130,7 +131,7 @@ img {
 /* Estilos para o cabeçalho da página (header) */
 header {
   /* Gradiente de fundo com imagem e ajustes de cor e posição */
-  background-image: url("../img/IMG_3510.jpg");
+  background-image: url("../img/2cama.jpg");
   min-height: 100vh; /* Altura mínima da seção do cabeçalho */
   color: #fff; /* Cor do texto */
   padding: 25px; /* Preenchimento interno de 25  background-image: url("paper.gif")pixels */
@@ -140,6 +141,7 @@ header {
   background-position: 50% 66%; /* Posição de fundo centrada na vertical e 66% na horizontal */
   background-repeat: no-repeat; /* Não repetir a imagem de fundo */
   background-size: cover; /* Cobrir completamente o elemento, mantendo */
+
 }
 
 
@@ -148,6 +150,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 /* Estilos para elementos span na parte superior do cabeçalho */
@@ -159,9 +162,11 @@ header {
 
 /* Estilos para a imagem do site no cabeçalho */
 .site-name img {
-  width: 200px; /* Largura da imagem conforme desejado */
+  width: 400px; /* Largura da imagem conforme desejado */
   height: auto; /* Ajuste automático da altura de acordo com a largura */
-  margin-top: -18%; /* Margem superior negativa para ajuste visual */
+  margin-top: -15%; /* Margem superior negativa para ajuste visual */
+  display: flex;
+  justify-content: center;
 }
 
 /* Estilos para o hover de links na parte superior do cabeçalho */
@@ -248,7 +253,13 @@ header {
 /* Estilos para a barra de rolagem quando ativa */
 .scroll-bg.active {
   background-color: var(--dark);
-  transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+    background-image: url("../img/LOGO.png");
+    background-repeat: no-repeat;
+    background-position: left top; /* Alinha a imagem no canto superior esquerdo */
+    background-attachment: fixed; /* Fixa a imagem na área de visualização */
+    background-size: auto 12%; /* Garante qu*/
+
 }
 
 /* Estilos para a navegação do site que não é exibida */
@@ -608,7 +619,7 @@ header {
 /* Estilos para o rodapé */
 /* Estilos para o contêiner do rodapé */
 .footer {
- background-color:grey;
+ background-color:rgb(12, 12, 12);
   color: #fff;
   text-align: center;
   display: flex;
@@ -621,6 +632,7 @@ header {
   width: 85vw;
   margin: 0 auto;
   padding: 30px;
+  align-items: center;
 }
 /* Estilos para o texto no rodapé, incluindo opacidade */
 .footer-container p,
@@ -635,33 +647,38 @@ header {
   text-decoration: none;
 }
 /* Estilos para os ícones  de redes sociais no rodapé */
+/* Estilos para os ícones de redes sociais no rodapé */
 .social-icons {
   list-style: none;
   display: flex;
   justify-content: center;
   padding: 15px 0;
-  
 }
+
 /* Estilos para cada ícone social, incluindo margens e transição */
 .social-icons li {
   margin: 0 10px;
   width: 50px;
   height: 50px;
-  background: #454607;
+  background: #d64105;
   border-radius: 50%;
   transition: var(--transition);
   cursor: pointer;
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-/* Estilos para o hover nos ícones -redes-sociais */
+/* Estilos para o hover nos ícones de redes sociais */
 .social-icons li:hover {
   background: #fff;
   color: #2e2e2e;
 }
+
 /* Estilos para informações de contato, incluindo disposição em colunas */
 .contact-item span {
   display: block;
 }
+
 
 /* Media query para telas com largura mínima de 900 pixels */
 @media (min-width: 900px) {

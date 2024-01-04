@@ -1,9 +1,9 @@
-{%load static%}
+{%load static%}     
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>oi</title>
+        <title>CasasEmPipa</title>
      
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
@@ -18,7 +18,7 @@
 <header class="header" id="header">
     <div class="head-top">
         <div class="site-name">
-            <img src="{% static 'img/logo-ok.png' %}" alt="logo">
+            <img src="{% static 'img/LOGO.png' %}" alt="logo">
         </div>
         <div class="site-nav">
             <span id="nav-btn">MENU <i class="fas fa-bars"></i></span>
@@ -112,16 +112,19 @@
             <div class = "footer-container">
                 <div>
                     <h2>Sobre Nós</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel veniam placeat soluta consequuntur! Ex provident porro veniam veritatis aliquid, tempora culpa quae deserunt eligendi impedit omnis incidunt quas hic. Quam.
-                        </p>
+                    <p> Bem-vindo à Casas em Pipa, sua maneira fácil e eficiente de alugar casas em Tibau do Sul e região. Conectamos locatários a propriedades incríveis em Pipa, oferecendo uma experiência simplificada e personalizada. Encontre seu lar ideal conosco.</p>
                     <ul class = "social-icons">
                         <li class = "flex">
-                            <i class = "fa fa-twitter fa-2x"></i>
+                            <a href="https://twitter.com/M47inha" target="_blank">
+                            <i class = "fa fa-twitter fa-2x"> </i>
+            
                         </li>
                         <li class = "flex">
+                            <a href="{{ social_links.twitter }}" target="_blank">
                             <i class = "fa fa-facebook fa-2x"></i>
                         </li>
                         <li class = "flex">
+                            <a href="https://www.instagram.com/makariosm_/" target="_blank">
                             <i class = "fa fa-instagram fa-2x"></i>
                         </li>
                     </ul>
